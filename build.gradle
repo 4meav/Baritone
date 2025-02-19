@@ -4,20 +4,33 @@ plugins {
 }
 
 group = 'ai'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://repo.papermc.io/repository/maven-public/'
+    }
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    implementation files('libs/sigma-jello.jar')
+
+    compileOnly files('libs/sigma-jello.jar')
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
+    compileOnly 'com.google.code.gson:gson:2.8.6'
+    compileOnly 'com.google.guava:guava:21.0'
+    compileOnly 'it.unimi.dsi:fastutil:8.2.1'
+    compileOnly 'org.apache.commons:commons-lang3:3.5'
+    compileOnly 'org.jetbrains:annotations:24.1.0'
+    compileOnly 'io.netty:netty-all:4.1.25.Final'
+    compileOnly 'org.lwjgl:lwjgl:3.2.2'
+    compileOnly 'org.lwjgl:lwjgl-opengl:3.3.6'
+    compileOnly 'commons-io:commons-io:2.14.0'
+    compileOnly 'com.mojang:datafixerupper:4.0.26'
+    compileOnly 'com.mojang:brigadier:1.0.17'
 }
 
-
-
-test {
-    useJUnitPlatform()
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
